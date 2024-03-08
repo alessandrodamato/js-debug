@@ -25,7 +25,7 @@ const cars = [
     {
         manufacturer: 'Volkswagen',
         model: 'Golf',
-        type: 'Benzina'
+        type: 'benzina'
     },
     {
         manufacturer: 'Fiat',
@@ -50,28 +50,26 @@ const cars = [
     {
         manufacturer: 'Ford',
         model: 'Kuga',
-        type: 'Diesel'
+        type: 'diesel'
     },
     {
         manufacturer: 'Seat',
         model: 'Ibiza',
         type: 'metano'
-    }
+    },
     {
         manufacturer: 'Audi',
         model: 'R8',
-        type: 'Benzina'
+        type: 'benzina'
     },
 ];
 
-const gasolineCars = cars.filter( (auto) >= auto.type === 'benzina');
+const gasolineCars = cars.filter( (auto) => auto.type === 'benzina');
 
-const dieselCars = cars.filter( (auto) => {
-    auto.type === 'diesel';
-});
+const dieselCars = cars.filter( (auto) => auto.type === 'diesel');
 
 const otherCars = cars.filter( (auto) => {
-    return auto.type !== 'benzina' || auto.type !== 'diesel';
+    return auto.type !== 'benzina' && auto.type !== 'diesel';
 });
 
 console.log('Auto a benzina');
@@ -84,3 +82,12 @@ console.log(dieselCars);
 
 console.log('Tutte le altre auto');
 console.log(otherCars);
+
+
+//////errori
+//1. mancava una virgola tra gli oggetti dell'array
+//2. la freccia dell'arrow function riga 67 era al contrario
+//3. la funzione dieselCars non aveva il return quindi l'ho reso implicito
+//4. il return di otherCars non deve essere benzina && diesel, mentre prima era benzina || diesel
+//5. il tipo di alimentazione della ford kuga 'diesel' era scritto 'Diesel ' quindi non corrispondeva al tipo di alimentazione specificato nella funzione
+//6. il tipo di alimentazione della golf e dell'R8 'benzina' era scritto 'Benzina ' quindi non corrispondeva al tipo di alimentazione specificato nella funzione
